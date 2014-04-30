@@ -105,11 +105,11 @@ module.exports = function( grunt ) {
 
 					// CLDRPluralRuleParser
 					if ( (/CLDRPluralRuleParser/).test( id ) ) {
-						// 1: UMD intro
-						// 2: UMD outro
 						return contents
-							.replace( /\(function\(root, factory\)[\s\S]*?}\(this, function\(\) {/, "var CLDRPluralRuleParser = (function() {" ) /* 1 */
-							.replace( /}\)\);\s+$/, "}());" ); /* 2 */
+
+							// Replace UMD wrapper into var assignment.
+							.replace( /\(function\(root, factory\)[\s\S]*?}\(this, function\(\) {/, "var CLDRPluralRuleParser = (function() {" )
+							.replace( /}\)\);\s+$/, "}());" );
 					}
 
 					// 1, and 2: Remove define() wrap.
