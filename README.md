@@ -263,11 +263,12 @@ to you in different flavors):
 <a name="plural_module"></a>
 ### Plural module
 
-- **`Globalize.plural( value [, locale] )`**
+- **`Globalize.formatPlural( value, json )`**
 
- Return the count group String: `zero`, `one`, `two`, `few`, `many`, or `other`.
+ Return the appropriate message based on value's plural group: `zero`, `one`,
+ `two`, `few`, `many`, or `other`.
 
- [Read more...](doc/api/plural/plural.md)
+ [Read more...](doc/api/plural/format.md)
 
 
 <a name="development"></a>

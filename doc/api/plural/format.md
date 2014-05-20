@@ -1,12 +1,8 @@
-## Globalize.plural( value [, locale] )
+## Globalize.formatPlural( value, json )
 
-It supports the creation of internationalized messages with plural inflection.
-This function returns the plural category group `zero`, `one`, `two`, `few`,
-`many`, or `other`. So, the appropriate message can be selected based on the
-number value.
-
-Note: Typically, plural formatting is done via MessageFormat with a plural
-argument type, rather than using this stand-alone function. 
+It supports the creation of internationalized messages with plural inflection by
+returning the appropriate message based on value's plural group: `zero`, `one`,
+`two`, `few`, `many`, or `other`.
 
 ### Parameters
 

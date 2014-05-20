@@ -1,30 +1,27 @@
 define([
-	"./common/get-cldr",
 	"./core",
 	"./plural/form"
-], function( commonGetCldr, Globalize, pluralForm ) {
+], function( Globalize, pluralForm ) {
 
 /**
- * Globalize.plural( value, locale )
+ * Globalize.formatPlural( value, json )
  *
  * @value [Number]
  *
  * @json [JSON]
  *
- * @locale [String]
- *
- * Return the appropriate message based on the plural group: zero | one | two | few | many | other.
+ * Return the appropriate message based on value's plural group: zero | one | two | few | many | other.
  */
-Globalize.plural = function( value, json, locale ) {
-	var cldr, form;
+Globalize.formatPlural =
+Globalize.prototype.formatPlural =
+function( value, json ) {
+	var form;
 
 	if ( typeof value !== "number" ) {
 		throw new Error( "Value is not a number" );
 	}
 
-	cldr = commonGetCldr( locale );
-
-	if ( !( form = pluralForm( value, cldr ) ) ) {
+	if ( !( form = pluralForm( value, this.cldr ) ) ) {
 		throw new Error( "Plural form not found!" );
 	}
 
