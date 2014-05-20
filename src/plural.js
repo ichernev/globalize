@@ -1,8 +1,8 @@
 define([
-	"./common/get-locale",
+	"./common/get-cldr",
 	"./core",
 	"./plural/form"
-], function( commonGetLocale, Globalize, pluralForm ) {
+], function( commonGetCldr, Globalize, pluralForm ) {
 
 /**
  * Globalize.plural( value, locale )
@@ -14,15 +14,15 @@ define([
  * Return the count group String: zero | one | two | few | many | other.
  */
 Globalize.plural = function( value, locale ) {
-	var form;
+	var cldr, form;
 
 	if ( typeof value !== "number" ) {
 		throw new Error( "Value is not a number" );
 	}
 
-	locale = commonGetLocale( locale );
+	cldr = commonGetCldr( locale );
 
-	if ( !( form = pluralForm( value, locale ) ) ) {
+	if ( !( form = pluralForm( value, cldr ) ) ) {
 		throw new Error( "Plural form not found!" );
 	}
 
