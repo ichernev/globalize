@@ -9,11 +9,13 @@ define([
  *
  * @value [Number]
  *
+ * @json [JSON]
+ *
  * @locale [String]
  *
- * Return the count group String: zero | one | two | few | many | other.
+ * Return the appropriate message based on the plural group: zero | one | two | few | many | other.
  */
-Globalize.plural = function( value, locale ) {
+Globalize.plural = function( value, json, locale ) {
 	var cldr, form;
 
 	if ( typeof value !== "number" ) {
@@ -26,7 +28,7 @@ Globalize.plural = function( value, locale ) {
 		throw new Error( "Plural form not found!" );
 	}
 
-	return form;
+	return json[ form ];
 };
 
 return Globalize;
