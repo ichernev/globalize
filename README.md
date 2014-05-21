@@ -263,7 +263,7 @@ to you in different flavors):
 <a name="plural_module"></a>
 ### Plural module
 
-- **`Globalize.formatPlural( value, json )`**
+- **`Globalize.formatPlural( value, messageData )`**
 
  Return the appropriate message based on value's plural group: `zero`, `one`,
  `two`, `few`, `many`, or `other`.

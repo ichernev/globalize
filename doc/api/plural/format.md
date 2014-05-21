@@ -1,4 +1,4 @@
-## Globalize.formatPlural( value, json )
+## .formatPlural( value, messageData )
 
 It supports the creation of internationalized messages with plural inflection by
 returning the appropriate message based on value's plural group: `zero`, `one`,
@@ -8,20 +8,23 @@ returning the appropriate message based on value's plural group: `zero`, `one`,
 
 **value**
 
-Number to be tested?, eg. `0` (integer), or `3.14` (decimal).
+A Number for which the plural message should be formatted for.
 
-**locale** Optional
+**messageData**
 
-Locale string that overrides default.
-
+JSON object with message data.
 
 ### Example
 
 ```javascript
+var messageData = {
+  one: "You have 1 unread message",
+  other: "You have {0} unread messages"
+};
 Globalize.locale( "en" );
-Globalize.plural( 0 ); // "other"
-Globalize.plural( 1 ); // "one"
-Globalize.plural( 2 ); // "other"
+Globalize.plural( 0, messageData ); // "You have 0 unread messages"
+Globalize.plural( 1 ); // "You have 1 unread message"
+Globalize.plural( 2 ); // "You have 2 unread messages"
 
 Globalize.plural( 0, "ar" ); // "zero"
 Globalize.plural( 1, "ar" ); // "one"

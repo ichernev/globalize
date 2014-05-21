@@ -4,17 +4,17 @@ define([
 ], function( Globalize, pluralForm ) {
 
 /**
- * Globalize.formatPlural( value, json )
+ * Globalize.formatPlural( value, messageData )
  *
  * @value [Number]
  *
- * @json [JSON]
+ * @messageData [JSON]
  *
  * Return the appropriate message based on value's plural group: zero | one | two | few | many | other.
  */
 Globalize.formatPlural =
 Globalize.prototype.formatPlural =
-function( value, json ) {
+function( value, messageData ) {
 	var form;
 
 	if ( typeof value !== "number" ) {
@@ -25,7 +25,7 @@ function( value, json ) {
 		throw new Error( "Plural form not found!" );
 	}
 
-	return json[ form ];
+	return messageData[ form ];
 };
 
 return Globalize;
