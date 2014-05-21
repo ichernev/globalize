@@ -22,16 +22,32 @@ var messageData = {
   other: "You have {0} unread messages"
 };
 Globalize.locale( "en" );
-Globalize.plural( 0, messageData ); // "You have 0 unread messages"
-Globalize.plural( 1 ); // "You have 1 unread message"
-Globalize.plural( 2 ); // "You have 2 unread messages"
+Globalize.plural( 0, messageData ); // "You have {0} unread messages"
+Globalize.plural( 1, messageData ); // "You have 1 unread message"
+Globalize.plural( 2, messageData ); // "You have {0} unread messages"
 
-Globalize.plural( 0, "ar" ); // "zero"
-Globalize.plural( 1, "ar" ); // "one"
-Globalize.plural( 2, "ar" ); // "two"
-Globalize.plural( 3, "ar" ); // "few"
+// FIXME
 
-Globalize.plural( 0, "ru" ); // "many"
-Globalize.plural( 1, "ru" ); // "one"
-Globalize.plural( 2, "ru" ); // "few"
+messageData = {
+  zero:
+  one:
+  two:
+  few:
+  many:
+  other:
+};
+Globalize( "ar" ).plural( 0, messageData ); // "zero"
+Globalize( "ar" ).plural( 1, messageData ); // "one"
+Globalize( "ar" ).plural( 2, messageData ); // "two"
+Globalize( "ar" ).plural( 3, messageData ); // "few"
+
+messageData = {
+  few:
+  many:
+  one:
+  other:
+};
+Globalize( "ru" ).plural( 0, messageData ); // "many"
+Globalize( "ru" ).plural( 1, messageData ); // "one"
+Globalize( "ru" ).plural( 2, messageData ); // "few"
 ```
